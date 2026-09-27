@@ -186,6 +186,21 @@ read:
 ```
 </details>
 
+<details>
+<summary><strong>Zed</strong> (<code>.agents/skills/humanizer/SKILL.md</code>)</summary>
+
+```markdown
+---
+name: "humanizer"
+description: "Convert robotic AI prose into punchy engineering writing"
+---
+
+# Humanizer Guidelines
+- Cut throat-clearing openers ("Certainly! Here is...").
+- Use active voice and concrete verbs.
+```
+</details>
+
 ---
 
 ## 🤝 Supported Harness Matrix
@@ -206,24 +221,6 @@ Every mapping is backed by vendor documentation and verified through automated c
 | **Zed** | `.agents/skills/<n>/SKILL.md` | `name`, `description`, `disable-model-invocation` | Shared with Cursor/Codex; commands become non-invocable skills |
 
 *Planned Harnesses:* Grok CLI, Continue.
-
-### Zed
-
-Zed's agent reads [Agent Skills](https://zed.dev/docs/ai/skills) from the same cross-vendor
-`.agents/skills/` layout Cinch already writes for Cursor and Codex:
-
-- **Global:** `~/.agents/skills/<name>/SKILL.md`
-- **Project-local:** `<worktree>/.agents/skills/<name>/SKILL.md`
-
-Type `/` in the agent panel and pick the skill, or load it with an `@<skill>` mention. The
-Skills Manager opens with `cmd-alt-l` (macOS) / `ctrl-alt-l` (Linux/Windows). Project-local
-skills load only from a [trusted worktree](https://zed.dev/docs/ai/skills). A skill folder
-may also contain `scripts/`, `references/`, and `assets/`; Cinch copies those alongside the
-`SKILL.md` when the source ships them.
-
-Because Zed shares `.agents/skills/` with Cursor and Codex, a `--harness cursor,zed` run
-writes the file once (as Cursor's rendering, which includes `paths`) and reports Zed as
-`shared`. Wire `--harness zed` on its own for Zed's minimal `name`/`description` frontmatter.
 
 ---
 
